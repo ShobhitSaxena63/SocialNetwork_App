@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">SocialNetwork</string>
+    <string name="login">Login</string>
+    <string name="username_email">Username/Email</string>
+    <string name="password">Password</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up!</string>
+    <string name="password_visible_content_description">Hide password</string>
+    <string name="password_hidden_content_description">show password</string>
+    <string name="register">Register</string>
+    <string name="email">E-mail</string>
+    <string name="username">Username</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="sign_in">Sign In!</string>
+    <string name="unlike">Unlike</string>
+    <string name="like">Like</string>
+    <string name="comment">comment</string>
+    <string name="share">share</string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet efficitur consectetur. Donec felis nibh, ullamcorper eu odio quis, semper vulputate felis. Curabitur feugiat, dolor ut pellentesque pulvinar, est quam consectetur sapien, nec venenatis risus urna a lorem. Proin gravida magna in tellus finibus pellentesque eget in enim. Donec commodo ac magna nec suscipit</string>
+    <string name="x_comments">%d comments</string>
+    <string name="liked_by_x_people">Liked by %d people</string>
+    <string name="read_more">Read more</string>
+    <string name="home">Home</string>
+    <string name="chat">Chat</string>
+    <string name="notifications">Notifications</string>
+    <string name="user">User</string>
+    <string name="activity">Activity</string>
+    <string name="profile">Profile</string>
+    <string name="make_post">Make post</string>
+</resources>
