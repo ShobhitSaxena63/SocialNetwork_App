@@ -70,6 +70,7 @@ fun LoginScreen(
                 onValueChange = { viewModel.setUsernameText(it) },
                 modifier = Modifier.testTag(STANDARD_TEXT_FIELD),
                 error = viewModel.usernameError.value,
+                keyboardType = KeyboardType.Email,
                 hint = stringResource(id = R.string.username_email)
             )
             Spacer(modifier = Modifier.height(SpaceLarge))

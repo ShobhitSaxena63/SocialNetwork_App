@@ -2,7 +2,9 @@ package com.shobhit97.socialnetwork.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -11,6 +13,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ChatBubble
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -24,13 +27,18 @@ import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -54,6 +62,7 @@ import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.shobhit97.socialnetwork.R
@@ -67,7 +76,7 @@ import com.shobhit97.socialnetwork.presentation.util.Screen
 fun StandardScaffold(
     navController: NavController,
     modifier: Modifier = Modifier,
-    showBottomBar: Boolean = false,
+    showBottomBar: Boolean = true,
     bottomNavigationItems: List<BottomNavigationItem> = listOf(
         BottomNavigationItem(
             route = Screen.MainFeedScreen.route,
@@ -82,7 +91,7 @@ fun StandardScaffold(
         ),
         //Empty item between nav items so that they are bit away from fab button
         BottomNavigationItem(
-            route = "emptySpace",
+            route = "",
         ),
         BottomNavigationItem(
             route = Screen.ActivityScreen.route,
@@ -208,7 +217,12 @@ fun StandardScaffold(
 
         }
     ) {
-        it
-        content()
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = it.calculateTopPadding())
+        ) {
+            content()
+        }
     }
 }

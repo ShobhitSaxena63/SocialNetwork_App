@@ -67,6 +67,7 @@ fun RegisterScreen(
                 text = viewModel.username.value,
                 onValueChange = { viewModel.setEmail(it) },
                 modifier = Modifier.testTag(TestTags.STANDARD_TEXT_FIELD),
+                keyboardType = KeyboardType.Email,
                 error = viewModel.emailError.value,
                 hint = stringResource(id = R.string.email)
             )

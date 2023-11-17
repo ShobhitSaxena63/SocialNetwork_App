@@ -71,6 +71,7 @@ fun RowScope.StandardBottomNavItem(
             durationMillis = 300,
         ),
         label = "",
+
     )
 
     NavigationBarItem(
@@ -114,7 +115,7 @@ fun RowScope.StandardBottomNavItem(
                         modifier = Modifier
                             .size(35.dp)
                             .drawBehind {
-                                if (selected) {
+                                if (lineLength.value > 0f) {
                                     drawLine(
                                         color = if (selected) selectedColor else unselectedColor,
                                         start = Offset(0f * lineLength.value, size.height + 15f),

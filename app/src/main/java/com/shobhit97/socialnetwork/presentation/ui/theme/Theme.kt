@@ -48,7 +48,7 @@ fun SocialNetworkTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = DarkColorScheme.primary.toArgb()
+            window.statusBarColor = CharcoalGray.toArgb()
         }
     }
 

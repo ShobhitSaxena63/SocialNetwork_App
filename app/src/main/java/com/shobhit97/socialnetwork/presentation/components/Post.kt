@@ -51,6 +51,7 @@ import com.shobhit97.socialnetwork.domain.models.Post
 import com.shobhit97.socialnetwork.presentation.ui.theme.HintGray
 import com.shobhit97.socialnetwork.presentation.ui.theme.LightGray
 import com.shobhit97.socialnetwork.presentation.ui.theme.MediumGray
+import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSize
 import com.shobhit97.socialnetwork.presentation.ui.theme.SocialNetworkTheme
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.TextWhite
@@ -58,11 +59,14 @@ import com.shobhit97.socialnetwork.util.Constants.MAX_POST_DESCRIPTION_LINES
 
 @Composable
 fun Post(
+    modifier: Modifier = Modifier,
     post: Post,
-    profilePictureSize: Dp = 80.dp
+    showProfilePicture:Boolean = true,
+    onPostClick: () -> Unit = {}
+
 ) {
     Box(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
 
     ) {
@@ -70,10 +74,13 @@ fun Post(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = profilePictureSize / 2f)
+                .padding(top = ProfilePictureSize / 2f)
                 .clip(RoundedCornerShape(8.dp))
                 .shadow(5.dp)
                 .background(color = MediumGray)
+                .clickable {
+                    onPostClick()
+                }
 
         ) {
             Image(
@@ -141,20 +148,23 @@ fun Post(
             }
 
         }
-        Image(
-            painter = painterResource(id = R.drawable.person_sample),
-            contentDescription = "Profile Pic",
-            contentScale = ContentScale.FillBounds,
-            modifier = Modifier
-                .size(profilePictureSize)
-                .clip(RoundedCornerShape(50.dp))
-                .align(Alignment.TopCenter)
-                .border(
-                    width = 2.dp,
-                    shape = CircleShape,
-                    color = Color.Yellow
-                )
-        )
+        if (showProfilePicture){
+            Image(
+                painter = painterResource(id = R.drawable.person_sample),
+                contentDescription = "Profile Pic",
+                contentScale = ContentScale.FillBounds,
+                modifier = Modifier
+                    .size(ProfilePictureSize)
+                    .clip(RoundedCornerShape(50.dp))
+                    .align(Alignment.TopCenter)
+                    .border(
+                        width = 2.dp,
+                        shape = CircleShape,
+                        color = Color.Yellow
+                    )
+            )
+        }
+
     }
 }
 

@@ -50,5 +50,12 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         color = TextGray
-    )
+    ),
+    bodySmall = TextStyle(
+        fontFamily = quicksand,
+        fontWeight = FontWeight.Bold,
+        fontSize = 16.sp,
+        color = TextWhite
+    ),
+
 )

@@ -17,6 +17,7 @@
     <string name="comment">comment</string>
     <string name="share">share</string>
     <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet efficitur consectetur. Donec felis nibh, ullamcorper eu odio quis, semper vulputate felis. Curabitur feugiat, dolor ut pellentesque pulvinar, est quam consectetur sapien, nec venenatis risus urna a lorem. Proin gravida magna in tellus finibus pellentesque eget in enim. Donec commodo ac magna nec suscipit</string>
+    <string name="dummy_text_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In laoreet efficitur consectetur. Donec felis nibh, ullamcorper eu odio quis, semper vulputate felis. </string>
     <string name="x_comments">%d comments</string>
     <string name="liked_by_x_people">Liked by %d people</string>
     <string name="read_more">Read more</string>
@@ -27,4 +28,24 @@
     <string name="activity">Activity</string>
     <string name="profile">Profile</string>
     <string name="make_post">Make post</string>
+    <string name="go_back">Go Back</string>
+    <string name="your_feed">Your Feed</string>
+    <string name="your_chats">Your Chats</string>
+    <string name="name">%s</string>
+    <string name="your_activity">Your Activity</string>
+    <string name="your_profile">Your Profile</string>
+    <string name="edit_your_profile">Edit your profile</string>
+    <string name="search_for_users">Search for users</string>
+    <string name="create_a_new_post">Create a new post</string>
+    <string name="liked_by">Liked by</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="like_comment">like comment</string>
+    <string name="user_liked_your_post"><b>%s</b> liked <b>your post</b></string>
+    <string name="liked">liked</string>
+    <string name="commented_on">commented on</string>
+    <string name="your_post">your post</string>
+    <string name="followers">Followers</string>
+    <string name="following">Following</string>
+    <string name="posts">Posts</string>
+    <string name="follow">Follow</string>
 </resources>

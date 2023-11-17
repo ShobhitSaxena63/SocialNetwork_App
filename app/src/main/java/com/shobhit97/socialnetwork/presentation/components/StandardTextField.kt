@@ -41,13 +41,11 @@ fun StandardTextField(
     showPasswordToggle: Boolean = false,
     onPasswordToggleClick: (Boolean) -> Unit = {},
     keyboardType: KeyboardType = KeyboardType.Text,
+    isPasswordToggleDisplayed:Boolean = keyboardType == KeyboardType.Password ,
     onValueChange: (String) -> Unit,
 
     ) {
 
-    var isPasswordToggleDisplayed by remember {
-        mutableStateOf(keyboardType == KeyboardType.Password)
-    }
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
