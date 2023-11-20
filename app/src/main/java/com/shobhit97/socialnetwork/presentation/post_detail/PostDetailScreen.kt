@@ -1,7 +1,6 @@
 package com.shobhit97.socialnetwork.presentation.post_detail
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 
 import androidx.compose.foundation.layout.Box
@@ -24,7 +23,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -40,7 +38,7 @@ import com.shobhit97.socialnetwork.domain.models.Post
 import com.shobhit97.socialnetwork.presentation.components.ActionRow
 import com.shobhit97.socialnetwork.presentation.components.StandardToolbar
 import com.shobhit97.socialnetwork.presentation.post_detail.components.Comment
-import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSize
+import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSizeMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.SocialNetworkTheme
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceLarge
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
@@ -84,7 +82,7 @@ fun PostDetailScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = ProfilePictureSize / 2f)
+                        .padding(top = ProfilePictureSizeMedium / 2f)
 
                 ) {
                     Image(
@@ -155,7 +153,7 @@ fun PostDetailScreen(
                     contentDescription = "Profile Pic",
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier
-                        .size(ProfilePictureSize)
+                        .size(ProfilePictureSizeMedium)
                         .clip(RoundedCornerShape(50.dp))
 
                         .align(Alignment.TopCenter)

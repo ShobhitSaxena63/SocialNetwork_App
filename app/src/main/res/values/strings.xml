@@ -48,4 +48,9 @@
     <string name="following">Following</string>
     <string name="posts">Posts</string>
     <string name="follow">Follow</string>
+    <string name="instagram_profile_url">Instagram profile URL</string>
+    <string name="linkedin_profile_url">LinkedIn Profile URL</string>
+    <string name="github_profile_url">GitHub Profile URL</string>
+    <string name="select_3_top_skills">Select 3 top skills:</string>
+    <string name="unfollow">Unfollow</string>
 </resources>

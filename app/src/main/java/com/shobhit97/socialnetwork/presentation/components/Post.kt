@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -37,7 +38,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -48,10 +48,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.shobhit97.socialnetwork.R
 import com.shobhit97.socialnetwork.domain.models.Post
-import com.shobhit97.socialnetwork.presentation.ui.theme.HintGray
 import com.shobhit97.socialnetwork.presentation.ui.theme.LightGray
 import com.shobhit97.socialnetwork.presentation.ui.theme.MediumGray
-import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSize
+import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSizeMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.SocialNetworkTheme
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.TextWhite
@@ -61,7 +60,7 @@ import com.shobhit97.socialnetwork.util.Constants.MAX_POST_DESCRIPTION_LINES
 fun Post(
     modifier: Modifier = Modifier,
     post: Post,
-    showProfilePicture:Boolean = true,
+    showProfileImage:Boolean = true,
     onPostClick: () -> Unit = {}
 
 ) {
@@ -74,7 +73,7 @@ fun Post(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = ProfilePictureSize / 2f)
+                .padding(top = ProfilePictureSizeMedium / 2f)
                 .clip(RoundedCornerShape(8.dp))
                 .shadow(5.dp)
                 .background(color = MediumGray)
@@ -148,13 +147,13 @@ fun Post(
             }
 
         }
-        if (showProfilePicture){
+        if (showProfileImage){
             Image(
                 painter = painterResource(id = R.drawable.person_sample),
                 contentDescription = "Profile Pic",
                 contentScale = ContentScale.FillBounds,
                 modifier = Modifier
-                    .size(ProfilePictureSize)
+                    .size(ProfilePictureSizeMedium)
                     .clip(RoundedCornerShape(50.dp))
                     .align(Alignment.TopCenter)
                     .border(

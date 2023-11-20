@@ -3,30 +3,29 @@ package com.shobhit97.socialnetwork.presentation.edit_profile
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material3.Button
+import androidx.compose.material3.ElevatedAssistChip
+import androidx.compose.material3.ElevatedFilterChip
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
+import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.SelectableChipColors
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -42,19 +41,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.shobhit97.socialnetwork.R
-import com.shobhit97.socialnetwork.domain.models.Post
-import com.shobhit97.socialnetwork.presentation.components.Post
-import com.shobhit97.socialnetwork.presentation.components.StandardTextField
 import com.shobhit97.socialnetwork.presentation.components.StandardToolbar
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceLarge
-import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceSmall
-import com.shobhit97.socialnetwork.presentation.util.Screen
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -132,21 +125,106 @@ fun EditProfileScreen(
                 onValueChange = { username = it },
                 placeholder = {
                     Text(
-                        text = stringResource(id = R.string.username),modifier = Modifier.fillMaxSize().background(Color.Cyan).align(Alignment.CenterHorizontally)
+                        text = stringResource(id = R.string.username), modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
                     )
                 },
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(96.dp)
-                    .padding(SpaceLarge),
-                colors = TextFieldDefaults.textFieldColors(containerColor = Color.White, textColor = Color.Black)
+                    .align(Alignment.CenterHorizontally)
+                    .width(350.dp)
+                    .padding(start = 50.dp, end = 50.dp, top = SpaceLarge),
+                colors = TextFieldDefaults.textFieldColors(
+                    containerColor = Color.White,
+                    textColor = Color.Black
+                )
             )
+
+            EditProfileEditText(icon = R.drawable.instagram_icon, hintText = stringResource(id = R.string.instagram_profile_url))
+            EditProfileEditText(icon = R.drawable.linkedin_logo, hintText = stringResource(id = R.string.linkedin_profile_url))
+            EditProfileEditText(icon = R.drawable.github_logo, hintText = stringResource(id = R.string.github_profile_url))
+            
+            Text(
+                text = stringResource(R.string.select_3_top_skills),
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.CenterHorizontally)
+            )
+            
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = SpaceLarge, vertical = SpaceLarge)
+            ) {
+                FilterChip(selected = true, onClick = { /*TODO*/ }, label = { Text(text = "Kotlin") },
+                    colors = FilterChipDefaults.filterChipColors(
+                        disabledLabelColor = Color.LightGray,
+                        selectedLabelColor = MaterialTheme.colorScheme.primary
+                    )
+                )
+                Spacer(modifier = Modifier.width(SpaceSmall))
+                FilterChip(selected = true, onClick = { /*TODO*/ }, label = { Text(text = "Java") },
+                    colors = FilterChipDefaults.filterChipColors(
+                        disabledLabelColor = Color.LightGray,
+                        selectedLabelColor = MaterialTheme.colorScheme.primary
+                    ))
+                Spacer(modifier = Modifier.width(SpaceSmall))
+                FilterChip(selected = false, onClick = { /*TODO*/ }, label = { Text(text = "Python") },
+                    colors = FilterChipDefaults.filterChipColors(
+                        disabledLabelColor = Color.LightGray,
+                        selectedLabelColor = MaterialTheme.colorScheme.primary,
+                        selectedContainerColor = Color.Transparent,
+                        disabledContainerColor = Color.Transparent,
+                        containerColor = Color.Transparent
+                    ))
+            }
 
 
         }
 
     }
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun EditProfileEditText(
+    modifier:Modifier = Modifier,
+    icon:Int,
+    contentDescription :String = "",
+    hintText: String,
+) {
+    var state by remember {
+        mutableStateOf("")
+    }
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 50.dp, end = 50.dp, top = SpaceLarge),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            painter = painterResource(id = icon),
+            contentDescription = contentDescription,
+            modifier = Modifier.size(40.dp)
+        )
+        Spacer(modifier = Modifier.width(24.dp))
+        OutlinedTextField(
+            value = state,
+            onValueChange = { state = it },
+            placeholder = {
+                Text(
+                    text = hintText, modifier = Modifier
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth(),
+            colors = TextFieldDefaults.textFieldColors(
+                containerColor = Color.White,
+                textColor = Color.Black
+            )
+        )
+    }
 }
 
 

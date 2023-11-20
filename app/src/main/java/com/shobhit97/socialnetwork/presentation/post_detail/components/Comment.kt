@@ -1,7 +1,6 @@
 package com.shobhit97.socialnetwork.presentation.post_detail.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,7 +26,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -36,7 +34,6 @@ import androidx.compose.ui.unit.dp
 import com.shobhit97.socialnetwork.R
 import com.shobhit97.socialnetwork.domain.models.Comment
 import com.shobhit97.socialnetwork.presentation.ui.theme.MediumGray
-import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSize
 import com.shobhit97.socialnetwork.presentation.ui.theme.ProfilePictureSizeSmall
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
 import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceSmall
