@@ -91,7 +91,7 @@ fun ProfileHeaderSection(
                 ) {
                     Icon(
                         imageVector = Icons.Filled.Edit,
-                        contentDescription = stringResource(id = R.string.edit_your_profile)
+                        contentDescription = stringResource(id = R.string.edit_your_profile),
                     )
                 }
 

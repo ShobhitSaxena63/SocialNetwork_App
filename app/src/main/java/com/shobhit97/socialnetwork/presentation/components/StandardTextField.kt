@@ -3,8 +3,10 @@ package com.shobhit97.socialnetwork.presentation.components
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.RemoveRedEye
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -21,12 +23,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.shobhit97.socialnetwork.R
 import com.shobhit97.socialnetwork.presentation.util.TestTags.PASSWORD_TOGGLE
 
@@ -38,14 +44,16 @@ fun StandardTextField(
     hint: String = "",
     maxLength: Int = 20,
     error: String = "",
+    leadingIcon: ImageVector? = null,
+    singleLine:Boolean = true,
+    maxLines:Int = 3,
     showPasswordToggle: Boolean = false,
     onPasswordToggleClick: (Boolean) -> Unit = {},
     keyboardType: KeyboardType = KeyboardType.Text,
-    isPasswordToggleDisplayed:Boolean = keyboardType == KeyboardType.Password ,
+    isPasswordToggleDisplayed: Boolean = keyboardType == KeyboardType.Password,
     onValueChange: (String) -> Unit,
 
     ) {
-
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -65,9 +73,21 @@ fun StandardTextField(
             keyboardOptions = KeyboardOptions(
                 keyboardType = keyboardType
             ),
-            singleLine = true,
-            trailingIcon = {
-                if (isPasswordToggleDisplayed) {
+            maxLines = maxLines,
+            singleLine = singleLine,
+            leadingIcon = if (leadingIcon != null) {
+                val icon:@Composable () -> Unit = {
+                    Icon(
+                        imageVector = leadingIcon, contentDescription = "null",
+                        tint = Color.White,
+                        modifier = Modifier.size(25.dp)
+                    )
+                }
+                icon
+            } else null,
+            trailingIcon = if (isPasswordToggleDisplayed) {
+                val icon:@Composable () -> Unit = {
+
                     IconButton(
                         onClick = {
                             onPasswordToggleClick(!showPasswordToggle)
@@ -83,16 +103,20 @@ fun StandardTextField(
                         )
                     }
                 }
-            },
+                icon
+            } else null
+            ,
 
             modifier = modifier.fillMaxWidth()
         )
 
-        if(error.isNotEmpty()) { 
-            Text(text = error, style = MaterialTheme.typography.bodyMedium,
+        if (error.isNotEmpty()) {
+            Text(
+                text = error, style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.End,
-                modifier = Modifier.fillMaxWidth())
+                modifier = Modifier.fillMaxWidth()
+            )
         }
     }
 }

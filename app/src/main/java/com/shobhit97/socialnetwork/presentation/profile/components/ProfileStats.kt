@@ -22,14 +22,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.shobhit97.socialnetwork.R
 import com.shobhit97.socialnetwork.domain.models.User
-import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceLarge
-import com.shobhit97.socialnetwork.presentation.ui.theme.SpaceMedium
+
 
 @Composable
 fun ProfileStats(
+    modifier: Modifier = Modifier,
     user: User,
     isOwnProfile:Boolean = true,
-    modifier: Modifier = Modifier,
     isFollowing: Boolean = false,
     onFollowClick: () -> Unit = {}
 ) {

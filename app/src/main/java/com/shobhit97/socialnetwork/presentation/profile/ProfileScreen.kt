@@ -40,8 +40,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.shobhit97.socialnetwork.R
 import com.shobhit97.socialnetwork.domain.models.Activity
@@ -64,7 +66,9 @@ import kotlin.random.Random
 
 @Composable
 fun ProfileScreen(
-    navController: NavController
+    navController: NavController,
+    profilePictureSize: Dp = ProfilePictureSizeLarge,
+    viewModel: ProfileViewModel = hiltViewModel()
 ) {
     Column(
         modifier = Modifier
@@ -114,7 +118,8 @@ fun ProfileScreen(
                     followerCount = 25,
                     followingCount = 30,
                     postCount = 120
-                ))
+                ),
+                    onEditClick = { navController.navigate(Screen.EditProfileScreen.route) })
             }
 
             items(20) {
@@ -131,7 +136,9 @@ fun ProfileScreen(
                         navController.navigate(Screen.PostDetailScreen.route)
                     },
                     showProfileImage = false,
-                    modifier = Modifier.padding(horizontal = SpaceMedium).offset(y = -((ProfilePictureSizeLarge / 2f)+ (ProfilePictureSizeMedium/2f)) ),
+                    modifier = Modifier
+                        .padding(horizontal = SpaceMedium)
+                        .offset(y = -((ProfilePictureSizeLarge / 2f) + (ProfilePictureSizeMedium / 2f))),
                 )
                 Spacer(modifier = Modifier.height(SpaceLarge))
 

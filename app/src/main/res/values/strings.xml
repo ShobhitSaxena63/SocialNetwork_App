@@ -53,4 +53,7 @@
     <string name="github_profile_url">GitHub Profile URL</string>
     <string name="select_3_top_skills">Select 3 top skills:</string>
     <string name="unfollow">Unfollow</string>
+    <string name="your_bio">Your bio</string>
+    <string name="kotlin">Kotlin</string>
+    <string name="save_changes">save changes</string>
 </resources>
