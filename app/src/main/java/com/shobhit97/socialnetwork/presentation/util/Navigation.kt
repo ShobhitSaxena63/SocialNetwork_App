@@ -18,6 +18,7 @@ import com.shobhit97.socialnetwork.presentation.main_feed_screen.MainFeedScreen
 import com.shobhit97.socialnetwork.presentation.post_detail.PostDetailScreen
 import com.shobhit97.socialnetwork.presentation.profile.ProfileScreen
 import com.shobhit97.socialnetwork.presentation.register.RegisterScreen
+import com.shobhit97.socialnetwork.presentation.search.SearchScreen
 import com.shobhit97.socialnetwork.presentation.splash.SplashScreen
 
 @Composable
@@ -26,7 +27,7 @@ fun Navigation(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.EditProfileScreen.route
+        startDestination = Screen.SplashScreen.route
     ) {
         composable(Screen.SplashScreen.route){
             SplashScreen(navController = navController)
@@ -65,6 +66,9 @@ fun Navigation(
         }
         composable(Screen.EditProfileScreen.route) {
             EditProfileScreen(navController = navController)
+        }
+        composable(Screen.SearchScreen.route) {
+            SearchScreen(navController = navController)
         }
     }
 

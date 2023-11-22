@@ -56,4 +56,9 @@
     <string name="your_bio">Your bio</string>
     <string name="kotlin">Kotlin</string>
     <string name="save_changes">save changes</string>
+    <string name="search">Search</string>
+    <string name="desciption">Description</string>
+    <string name="choose_photo">Choose photo</string>
+    <string name="post">Post</string>
+    <string name="create_post">Create Post</string>
 </resources>
